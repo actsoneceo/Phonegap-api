@@ -6,10 +6,10 @@
         id        = "com.actsone.booheart"
         version   = "1.0.0">
 
-    <name>booheart Project</name>
+    <name>Phonegap testing Project</name>
 
     <description>
-        booheart application.
+        Phonegap api testing application.
     </description>
 
     <author href="http://actsone.co.kr" email="support@actsone.co.kr">
