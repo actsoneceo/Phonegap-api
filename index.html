@@ -14,17 +14,20 @@
 
 <script src="phonegap.js"></script>
 <script type="text/javascript" charset="utf-8">
-var clat;
-var clng;
+var clat='37.474688';
+var clng='127.036741';
 var onDeviceReady = function() {
 	navigator.splashscreen.hide();
 	checkConnection();
 	document.addEventListener("pause", onPause, false);
 	document.addEventListener("resume", onResume, false);
 	document.addEventListener("backbutton", onBackKeyDown, false);
-var currentPosition = navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError, {maximumAge: 300000, timeout:50000, enableHighAccuracy : true} );
+	getcurrentPosition();
  };
 
+function getcurrentPosition() {
+	var currentPosition = navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError, {maximumAge: 300000, timeout:50000, enableHighAccuracy : true} );
+}
 function onGeoSuccess(position) {
 	//alert("onGeoSuccess..");
 	clat = position.coords.latitude;
@@ -61,7 +64,7 @@ $.initMap = function() {
             <div id="tags-control" class="item gradient rounded shadow" style="margin:5px;padding:5px 5px 5px 10px;" data-theme="a">
 					<select id="opts" style="outline:none;"></select>
 			</div>
-			<div data-role="button" data-inline="true" >Current Pos</div><div data-role="button" data-inline="true">Company Pos</div>
+			<a href="#" data-inline="true" onClick="getcurrentPosition();">Current Pos</div><a href="#" onClick="clat='37.474688';clng='127.036741';$.initMap();" data-inline="true">Company Pos</div>
     </div>
 </div>
 
