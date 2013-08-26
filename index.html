@@ -17,6 +17,9 @@
 var onDeviceReady = function() {
 	navigator.splashscreen.hide();
 	checkConnection();
+	document.addEventListener("pause", onPause, false);
+	document.addEventListener("resume", onResume, false);
+	document.addEventListener("backbutton", onBackKeyDown, false);
 };
 function init() {
     document.addEventListener("deviceready", onDeviceReady, true);
@@ -25,7 +28,15 @@ function checkConnection() {
 	var networkState = navigator.network.connection.type;
 	alert("Connection Type: " + networkState);
 }
-
+function onPause() {
+    alert("application is put into the background.");
+}
+function onResume() {
+    alert("the resume event..");
+}
+function onBackKeyDown() {
+    alert("the back button...");
+}
 </script>
 </head>
 
