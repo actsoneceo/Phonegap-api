@@ -64,9 +64,28 @@ $.initMap = function() {
             <div id="tags-control" class="item gradient rounded shadow" style="margin:5px;padding:5px 5px 5px 10px;" data-theme="a">
 					<select id="opts" style="outline:none;"></select>
 			</div>
-			<a href="#" data-inline="true" onClick="getcurrentPosition();">Current Pos</div><a href="#" onClick="clat='37.474688';clng='127.036741';$.initMap();" data-inline="true">Company Pos</div>
+			<div>
+				<a href="#" data-inline="true" data-role="button" onClick="getcurrentPosition();">Current Pos</div><a href="#" data-role="button" onClick="clat='37.474688';clng='127.036741';$.initMap();" data-inline="true">Company Pos</div>
+			</div>	
+	<a href="#page2" data-role="button" onClick="onBackButton();">Page2</a>
+	<a href="#page3" data-role="button" onClick="onBackButton();">Page3</a>
     </div>
 </div>
-
+<div data-role="page" id="page2">
+	<h2>Page2</h2>
+    <div data-role="content" id="mainbody">
+	<a href="#page1" data-role="button" onClick="onBackButton();">Home</a>
+	<a href="#page2" data-role="button" onClick="onBackButton();">Page2</a>
+	<a href="#page3" data-role="button" onClick="onBackButton();">Page3</a>
+    <div>
+</div>
+<div data-role="page" id="page3">
+	<h2>Page3</h2>
+    <div data-role="content" id="mainbody">
+	<a href="#page1" data-role="button" onClick="onBackButton();">Home</a>
+	<a href="#page2" data-role="button" onClick="onBackButton();">Page2</a>
+	<a href="#page3" data-role="button" onClick="onBackButton();">Page3</a>
+    <div>
+</div>
 </BODY>
 </HTML>
