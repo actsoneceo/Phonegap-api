@@ -14,16 +14,12 @@
 <script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>
 <script type="text/javascript" src="js/jquery.ui.map.full.min.js"></script>
 <script type="text/javascript" src="js/jquery.ui.map.overlays.min.js"></script>
-<!-- <script src="phonegap.js"></script> -->
+<script src="phonegap.js"></script>
 <script type="text/javascript" charset="utf-8">
 var clat='37.474688';
 var clng='127.036741';
 var onDeviceReady = function() {
 	navigator.splashscreen.hide();
-	checkConnection();
-	document.addEventListener("pause", onPause, false);
-	document.addEventListener("resume", onResume, false);
-	document.addEventListener("backbutton", onBackKeyDown, false);
 	getcurrentPosition();
  };
 
