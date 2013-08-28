@@ -27,9 +27,6 @@ var onDeviceReady = function() {
 	getcurrentPosition();
  };
 
-$(document).ready(function() {
-	//initMap();
-});
 
 function getcurrentPosition() {
 	var currentPosition = navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError, {maximumAge: 300000, timeout:50000, enableHighAccuracy : true} );
@@ -43,27 +40,12 @@ function onGeoSuccess(position) {
 function init() {
     document.addEventListener("deviceready", onDeviceReady, true);
 }   
-function checkConnection() {
-	var networkState = navigator.network.connection.type;
-	alert("Connection Type: " + networkState);
-}
-function onPause() {
-    alert("application is put into the background.");
-}
-function onResume() {
-    alert("the resume event..");
-}
-function onBackKeyDown() {
-    alert("the back button...");
-}
-function initMap() {
 
-}
 $(document).ready(function() {
 	var latLng = new google.maps.LatLng(clat, clng);
 	alert(clat + ", " + clng);
 	$('#map_canvas').gmap({ 'center': latLng, 'zoom': 15, 'minZoom':10, 'disableDefaultUI':true});
-}
+});
 
 </script>
 </head>
