@@ -57,10 +57,13 @@ function onBackKeyDown() {
     alert("the back button...");
 }
 function initMap() {
-	var latLng = new google.maps.LatLng(clat, clng);
-	$('#map_canvas').gmap({ 'center': latLng, 'zoom': 15, 'minZoom':10, 'disableDefaultUI':true});
 
 }
+$(document).ready(function() {
+	var latLng = new google.maps.LatLng(clat, clng);
+	$('#map_canvas').gmap({ 'center': latLng, 'zoom': 15, 'minZoom':10, 'disableDefaultUI':true});
+}
+
 </script>
 </head>
 
