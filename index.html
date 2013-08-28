@@ -11,8 +11,10 @@
 
 <script src="js/jquery.js"></script>
 <script src="js/jquery.mobile-1.4.0-alpha.2.min.js"></script> 
-
-<script src="phonegap.js"></script>
+<script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>
+<script type="text/javascript" src="js/jquery.ui.map.full.min.js"></script>
+<script type="text/javascript" src="js/jquery.ui.map.overlays.min.js"></script>
+<!-- <script src="phonegap.js"></script> -->
 <script type="text/javascript" charset="utf-8">
 var clat='37.474688';
 var clng='127.036741';
@@ -25,6 +27,10 @@ var onDeviceReady = function() {
 	getcurrentPosition();
  };
 
+$(document).ready(function() {
+	//initMap();
+});
+
 function getcurrentPosition() {
 	var currentPosition = navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError, {maximumAge: 300000, timeout:50000, enableHighAccuracy : true} );
 }
@@ -32,7 +38,7 @@ function onGeoSuccess(position) {
 	//alert("onGeoSuccess..");
 	clat = position.coords.latitude;
 	clng = position.coords.longitude;
-	$.initMap();
+	initMap();
 } 
 function init() {
     document.addEventListener("deviceready", onDeviceReady, true);
@@ -50,8 +56,9 @@ function onResume() {
 function onBackKeyDown() {
     alert("the back button...");
 }
-$.initMap = function() {
-	$('#map_canvas').gmap('get', 'map').setOptions({'center': new google.maps.LatLng(clat, clng) });
+function initMap() {
+	var latLng = new google.maps.LatLng(clat, clng);
+	$('#map_canvas').gmap({ 'center': latLng, 'zoom': 15, 'minZoom':10, 'disableDefaultUI':true});
 
 }
 </script>
@@ -60,32 +67,10 @@ $.initMap = function() {
 <BODY id="mainbody" onload="init();" >
 <div data-role="page" id="init">
    <div data-role="content" id="contentMap">
-            <div id="map_canvas" style="width:100%; height:100%;"></div>
-            <div id="tags-control" class="item gradient rounded shadow" style="margin:5px;padding:5px 5px 5px 10px;" data-theme="a">
-					<select id="opts" style="outline:none;"></select>
-			</div>
-			<div>
-				<a href="#" data-inline="true" data-role="button" onClick="getcurrentPosition();">Current Pos</div><a href="#" data-role="button" onClick="clat='37.474688';clng='127.036741';$.initMap();" data-inline="true">Company Pos</div>
-			</div>	
-	<a href="#page2" data-role="button" onClick="onBackButton();">Page2</a>
-	<a href="#page3" data-role="button" onClick="onBackButton();">Page3</a>
+            <div id="map_canvas" style="width:100%; height:600px;"></div>
+
     </div>
 </div>
-<div data-role="page" id="page2">
-	<h2>Page2</h2>
-    <div data-role="content" id="mainbody">
-	<a href="#page1" data-role="button" onClick="onBackButton();">Home</a>
-	<a href="#page2" data-role="button" onClick="onBackButton();">Page2</a>
-	<a href="#page3" data-role="button" onClick="onBackButton();">Page3</a>
-    <div>
-</div>
-<div data-role="page" id="page3">
-	<h2>Page3</h2>
-    <div data-role="content" id="mainbody">
-	<a href="#page1" data-role="button" onClick="onBackButton();">Home</a>
-	<a href="#page2" data-role="button" onClick="onBackButton();">Page2</a>
-	<a href="#page3" data-role="button" onClick="onBackButton();">Page3</a>
-    <div>
-</div>
+
 </BODY>
 </HTML>
